@@ -1,0 +1,502 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />   
+	<link rel="stylesheet" type="text/css" href="libs/jquery.toast.min.css"/>		          
+	<link rel="stylesheet" type="text/css" href="card_generator.css"/>		    
+	<script src="libs/html2canvas.js"></script>     
+
+	<script src="libs/jquery-2.0.0.min.js"></script>           
+	<script src="libs/jquery-ui-1.11.4.min.js"></script>           
+	<script src="libs/FileSaver.min.js"></script>  
+	<script src="libs/canvas-toBlob.js"></script>  
+	<script src="src/utils.js"></script> 
+	<script src="src/bleedings.js"></script> 
+	<script src="src/card_display.js"></script> 
+	<script src="src/card_saver.js"></script> 
+	<script src="src/i18n.js"></script> 
+	<script src="src/cloud.js"></script> 
+	<script src="src/events.js"></script> 
+	<script src="src/local_storage.js"></script> 
+	<script src="src/card_loader.js"></script> 
+	<script src="src/cache.js"></script> 
+	<script src="src/cloud_images.js"></script> 
+	<script src="libs/jquery.toast.min.js"></script>
+	
+<!--        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-74931644-1', 'auto');
+		ga('send', 'pageview');
+	</script>-->
+        
+        <!-- Latest compiled and minified CSS -->  		     
+	<link rel="stylesheet" href="libs/bootstrap.min.css" />		     
+	<!-- Optional theme --> 		     
+	<link rel="stylesheet" href="libs/bootstrap-theme.min.css" />		     
+	<!-- Latest compiled and minified JavaScript --> 		 
+	<script src="libs/bootstrap.min.js"></script>
+	<script src='libs/firebase.js'></script>
+		
+    </head>
+    
+    <body>
+        <div id="clone_container">
+
+        </div>
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Carte équipement</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+<!--                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Carte<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" id="clear_button">Nouveau</a></li>
+                                <li><a href="#" id="load_card_file" >Importer depuis fichier</a></li>
+                                 <input type="file" id="input_zec_file" name="files[]" class="hidden" accept=".zec"/>
+                                <li><a href="#" id="save_button" >Exporter vers fichier</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#" id="remember_button" class="help" data-container="body" data-toggle="popover" title="Information !" data-placement="right" data-content="En cliquant sur ce bouton, vous retrouverez votre carte à votre prochaine visite">Mémoriser</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#" id="upload_button" class="connected">Sauvegarder</a></li>
+                                <li><a href="#" id="delete_button" class="connected">Supprimer</a></li>
+                                <li><a href="#" id="share_button" class="connected">Partager (lecture seule)</a></li>
+                                <li><a href="#" id="share_image_button" class="connected">Partager l'image</a></li>
+                            </ul>
+                        </li>-->
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Fond perdu<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <div class="radio">
+                                        <label>
+                                            <input id="input_bleeding_none" value="bleeding_0" type="radio" name="input_bleeding" value="none" checked="checked"/>Aucun
+                                        </label>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="radio help" data-container="body" data-toggle="popover" title="Information" data-placement="right" data-content="Fonds perdus horizontaux et verticaux avec repères de coupe pour imprimer chez soi, et découper soi-même">
+                                        <label>
+                                            <input id="input_bleeding_print_and_cut"  value="bleeding_3" type="radio" name="input_bleeding" value="none" />Impression et découpe manuelle
+                                        </label>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="radio help"  data-container="body" data-toggle="popover" title="Information" data-placement="right" data-content="Fonds perdus verticaux avec bande blanches à droite et à gauche. Pour imprimer sur PrinterStudio, et découper le long des bandes blanches pour être à la taille des cartes du jeu">
+                                        <label>
+                                            <input id="input_bleeding_ps_and_cut"  value="bleeding_1" type="radio" name="input_bleeding" value="none">Printer studio et découpe manuelle
+                                        </label>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="radio help"   data-container="body" data-toggle="popover" title="Information" data-placement="right" data-content="Fonds perdus pour imprimer sur PrinterStudio sans découpe, et avoir des cartes au format mini-US">
+                                        <label>
+                                            <input id="input_bleeding_ps_no_cut"  value="bleeding_2" type="radio" name="input_bleeding" value="none" />Printer studio sans découpe
+                                        </label>
+                                    </div>
+                                </li>
+                                
+                                <li role="separator" class="divider"></li>
+                                
+                                <li>
+                                    <div class="checkbox help"  data-container="body" data-toggle="popover" title="Information" data-placement="right" data-content="Le contour n'est proposé que pour donner une idée du rendu final de la carte.<br/><br/> Les arrondis des coins sont approximatifs.<br/><br/> Le contour de l'image n'apparaitre pas sur l'image téléchargée." >
+                                        <label>
+                                            <input type="checkbox" id="input_card_border_preview" > Afficher le contour de la carte dans l'aperçu
+                                        </label>
+                                    </div>
+                                </li>
+                                
+                                <li role="separator" class="divider"></li>
+                                
+                                <li>
+                                    <a href="http://www.printerstudio.com/personalized/custom-blank-playing-cards-mini-size.html" target="_blank"> Aller sur Printer Studio</a>	
+				</li>
+                            </ul>
+                        </li>
+                        
+<!--                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle connected" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mes cartes sauvegardées<span class="caret"></span></a>
+                            <ul class="dropdown-menu" id="saved_card_list">
+                                <li><a href="#" id="google_connect"></a></li>
+                            </ul>
+                        </li>-->
+                    </ul>
+                    
+                    <button type="button" id="downoad_button"  class="btn btn-default navbar-btn btn-primary">Télécharger l'image</button>
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown" id="connected_menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="connected_info">Connecté avec<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" id="disconnect">Se déconnecter</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="dropdown" id="connect_menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Connexion<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" provider="google" class="provider_connect">Google</a></li>
+                                <li><a href="#" provider="facebook" class="provider_connect">Facebook</a></li>
+                                <li><a href="#" provider="twitter" class="provider_connect">Twitter</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">? <span class="caret"></span></a>
+                            <div class="dropdown-menu" id="about">
+                                Version moderne réalisée par fatruc avec l'aide de la communauté <a href="http://zombicide.eren-histarion.fr/">http://zombicide.eren-histarion.fr/</a><br/>Version Black Plague adaptée par jper1679.<br/><br/> Merci en particulier à Rhinon Hugues, sem, Marmotte84, et XofMdS<br/><br/>Pour toutes question, remarques, ou suggestion rendez vous sur <a href="http://zombicide.eren-histarion.fr/forum/viewtopic.php?f=17&t=2548">le sujet dédié du forum</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div> <!-- /.navbar-collapse -->
+            </div> <!-- /.container-fluid  -->
+        </nav>
+        
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <!-- Langage affiché -->
+                    <div class="panel panel-default help" id="langage_panel"  data-container="body" data-toggle="popover" title="Astuce !" data-placement="right" data-content="En choisissant un autre langage, vous avez la possibilité de traduire le titre, le sous titre et la description de la carte">
+                        <div class="panel-body">Langage affiché
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <img src="img/flags/fr.png" value="fr"/> <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><img src="img/flags/fr.png" value="fr"/></a></li>
+                                    <li><a href="#"><img src="img/flags/gb.png" value="gb"/></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Titre -->
+                    <div class="panel panel-default " >	
+                        <div class="panel-heading">Titre
+                        </div>
+                        
+                        <div class="panel-body">
+                            <textarea id="input_card_name" rows="1" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- Arme dual -->
+                    <div class="panel panel-default">					             
+                        <div class="panel-heading">Arme dual           
+                        </div>					                                   					             
+                        <div class="panel-body">						             
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="input_dual"/> Arme dual
+                                </label>
+                            </div>							
+                        </div>					         
+                    </div>
+                    
+                    <!-- Sous-titre -->
+                    <!-- <div class="panel panel-default help" data-container="body" data-toggle="popover" title="Astuce !" data-placement="right" data-content="Vous pouvez insérer des images de dés en utilisant les codes [1], [2], [3], [4], [5] et [6]">
+                        <div class="panel-heading">Sous-titre
+                        </div>
+                        
+                        <div class="panel-body">
+                            <textarea id="input_card_sub_name" rows="3" class="form-control"></textarea>
+                        </div>
+                    </div> -->
+                    
+                    <!-- Image de la carte -->
+                    <div class="panel panel-default help"  data-container="body" data-toggle="popover" title="Astuce !" data-placement="right" data-content="L'image peut être déplacée librement par drag'n drop directement sur l'aperçu.">
+                        <div class="panel-heading">Image de la carte
+                        </div>
+                        
+                        <div class="panel-body">
+                            <form>
+                                <div class="form-group">
+                                    <button type="button" id="load_card_image" class="btn btn-primary">Sélectionner une image</button>
+                                    <input type="file" id="card_file" name="files[]" class="hidden" accept="image/*">
+                                </div>
+                                
+                                <div class="form-group help" title="Information" data-placement="bottom" data-content="Le pourcentage correspond au pourcentage maximum que peut occuper l'image sur la largeur de la carte">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="input_image_max_rate" >
+                                        <span class="input-group-addon" id="basic-addon2">%</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="checkbox help"  data-toggle="popover" title="Attention !" data-placement="bottom" data-content="Cette option est expérimentale, et peut ne pas fonctionner avec tous les navigateurs">
+                                    <label>
+                                        <input type="checkbox" id="input_image_shadow" >Ombre portée
+                                    </label>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Statistiques -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Statistiques
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <textarea id="input_range" rows="3" class="form-control input_card_stats"></textarea>
+                                </div>
+                                
+                                <div class="col-md-3">
+                                    <textarea id="input_nb_dice" rows="3" class="form-control input_card_stats"></textarea>
+                                </div>
+                                
+                                <div class="col-md-3">
+                                    <textarea id="input_val_dice" rows="3" class="form-control input_card_stats"></textarea>
+                                </div>
+                                
+                                <div class="col-md-3">
+                                    <textarea id="input_power" rows="3" class="form-control input_card_stats"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Description -->
+                    <div class="panel panel-default help" data-container="body" data-toggle="popover" title="Astuce !" data-placement="right" data-content="Vous pouvez insérer des images de dés en utilisant les codes [1], [2], [3], [4], [5] et [6]<br/><br/>Vous pouvez insérer les libellés actif et passif des compagnons en utilisant les codes [actif] et [passif]<br/><br/>Le cadre de texte peut être déplacé en hauteur directement dans l'aperçu">
+                        <div class="panel-heading">Description
+                        </div>
+                        <div class="panel-body">
+                            <textarea id="input_description" rows="4" class="form-control" ></textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6" id="column-middle">
+                    <!-- Message modifications non sauvegardées -->
+                    <div class="alert alert-warning optional" role="alert" id="unsaved_warning"> <strong>Attention! </strong> Vous avez des modifications non sauvegardées</div>
+                    
+                    <!-- Zone de la carte -->
+                    <div id="card_bleeding_area" class="calque_bleeding">
+                        <div id="card_overlay" class="card_overlay_preview calque_bleeding">
+                            <div id="card_background" class="card_background calque_bleeding"></div>
+                            <div id="calque_parchemin" class="calque calque_parchemin optional calque_bleeding"></div>
+                            <div id="calque_stats" class="calque calque_stats optional calque_bleeding"></div>
+                            <div id="output_range" class="card_stats"></div>
+                            <div id="output_nb_dice" class="card_stats"></div>
+                            <div id="output_val_dice" class="card_stats"></div>
+                            <div id="output_power" class="card_stats"></div>
+                            <img id="card_image_shadow" src="" />
+                            <img id="card_image" src="" />
+                            <div id="calque_description" class="calque calque_description">
+                                <table id="output_description_container">
+                                    <tr>
+                                        <td id="output_description"/></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <img id="output_griffe" src="" class="calque calque_griffe_stats"/>
+                            <div id="calque_ultrarouge" class="calque calque_bleeding calque_ultrarouge optional"></div>
+                            <div id="calque_ultraorange" class="calque calque_bleeding calque_ultraorange optional"></div>
+                            <div id="calque_ultrayellow" class="calque calque_bleeding calque_ultrayellow optional"></div>
+                            <div id="calque_kill_noise" class="calque optional calque_kill_noise calque_bleeding"></div>
+                            
+                            <div id="calque_door" class="calque optional calque_door calque_bleeding"></div>
+                            <div id="calque_break_in_noise" class="calque optional calque_break_in_noise calque_bleeding"></div>
+                            <div id="calque_dice" class="calque optional calque_dice calque_bleeding"></div>
+                            
+                            <div id="calque_dual" class="calque calque_bleeding calque_dual optional"></div>
+                            <div id="calque_slot" class="calque calque_bleeding calque_slot optional"></div>
+                            <div id="output_card_header">
+                                <p id="output_card_name" ></p>
+                                <!-- <p id="output_card_sub_name" ></p>-->
+                            </div>
+                            <div id="calque_card_border_preview" class="calque calque_bleeding"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <!-- Arme ultrarouge -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Niveau</div>
+                        <div class="panel-body">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" id="input_ultrablue" name="input_card_level" value="blue" checked="checked"/> Arme bleu
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" id="input_ultrayellow" name="input_card_level" value="yellow"/> Arme jaune
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" id="input_ultraorange" name="input_card_level" value="orange"/> Arme orange
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" id="input_ultrarouge" name="input_card_level" value="red"/> Arme ultrarouge
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Emplacement -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Emplacement</div>
+                        <div class="panel-body">
+                            <div class="radio">
+                                <label>
+                                    <input id="input_slot_none" type="radio" name="input_slot"  value="none" checked="checked"/>Ne pas afficher
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input id="input_slot_armor" type="radio" name="input_slot"  value="silent"/>Armure
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input id="input_slot_hand" type="radio" name="input_slot"  value="noisy"/>Main
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input id="input_slot_bag" type="radio" name="input_slot"  value="noisy"/>Sac
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Ouverture de portes -->
+                    <div class="panel panel-default help" data-container="body" data-toggle="popover" title="Astuce !" data-placement="left" data-content="L'image peut être déplacée verticalement par drag'n drop directement sur l'aperçu.">
+                        <div class="panel-heading">Ouverture de portes</div>
+                        <div class="panel-body">
+                            <div class="radio">
+                                <label>
+                                    <input id="input_break_in_none" type="radio" name="input_break_in_noise"  value="none" checked="checked"/>Ne pas afficher
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input id="input_break_in_silent" type="radio" name="input_break_in_noise"  value="silent"/>Ouverture silencieuse
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input id="input_break_in_noisy" type="radio" name="input_break_in_noise"  value="noisy"/>Ouverture bruyante : 
+                                    <select id="input_dices" name="input_break_in_noise">
+                                        <option value="door6">6</option>
+                                        <option value="door5">5</option>
+                                        <option value="door4">4</option>
+                                        <option value="door3">3</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Bruit de l'arme -->
+                    <div class="panel panel-default help" data-container="body" data-toggle="popover" title="Astuce !" data-placement="left" data-content="L'image peut être déplacée verticalement par drag'n drop directement sur l'aperçu.">
+                        <div class="panel-heading">Bruit de l'arme</div>
+                        <div class="panel-body">
+                            <div class="radio">
+                                <label>
+                                    <input id="input_kill_none" type="radio" name="input_kill_noise"  value="none" checked="checked"/>Ne pas afficher
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input id="input_kill_silent" type="radio" name="input_kill_noise"  value="silent"/>Arme silencieuse
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input id="input_kill_noisy" type="radio" name="input_kill_noise"  value="noisy"/>Arme bruyante
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                                     
+                    <!-- Type de carte -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Type de carte</div>
+                        <div class="panel-body">
+                            <div class="radio">
+                                <label>
+                                    <input id="input_card_type_normal" type="radio" name="input_card_type"  value="normal" checked="checked"/>Normale
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input id="input_card_type_pimp" type="radio" name="input_card_type"  value="pimp"/>Pimp
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input id="input_card_type_starting" type="radio" name="input_card_type"  value="starting"/>Equipement de départ
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Griffe  personnalisée -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Griffe personnalisée
+                        </div>
+                        <div class="panel-body">
+                            <input type="file" id="griffe_file" name="files[]" class="hidden" accept="image/*"/>
+                            <button type="button" id="load_griffe_image" class="btn btn-primary">Sélectionner une image</button>
+                            <br/>
+                            <br/>
+                            <button type="button" id="delete_griffe_image" class="btn btn-primary">Supprimer la griffe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- popup de confirmation de suppression de carte -->
+        <div id="delete_card_modal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Suppression de carte</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Etes-vous certains de vouloir supprimer définitivement cette superbe carte équipement ? Pas de regret ? </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="button_cancel_delete_card" class="btn btn-default" data-dismiss="modal">Euh... finalement non</button>
+                        <button type="button" id="button_confirm_delete_card" class="btn btn-primary">Oui, bien sûr !</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        
+        <!-- popup de partage de carte -->
+        <div id="share_card_modal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Partagez le lien suivant</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p id="share_url"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="button_confirm_share" class="btn btn-primary">Merci chef !</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+    </body>
+</html>
