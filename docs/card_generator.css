@@ -1,0 +1,667 @@
+#clone_container{
+	position: absolute;
+	top:0px;
+	left:0px;
+	width:10px;
+	height:10px;
+	z-index: 9999999999999999999;
+	display:none;
+}
+
+body {
+background: url('img/zc_backgound.jpg') no-repeat center -350px;
+padding-top: 100px;
+background-color: black !important;
+padding-bottom: 20px;	
+}
+
+#downoad_button{
+	margin-left: 40px;
+}
+
+#about{
+	padding: 20px;
+	width: 300px;
+}
+
+.hidden{
+	display:none;
+}
+
+nav li div.radio , nav li div.checkbox{
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+nav li div.radio label, nav li div.checkbox label{
+	white-space: nowrap;
+}
+
+#card_overlay {
+    position:absolute;
+    width: 488px;
+    height: 750px;
+}
+
+.card_overlay_bleeding_2, .card_overlay_bleeding_1{
+	left: 55px;
+	top:36px;
+}
+
+.card_overlay_bleeding_3{
+	left: 80px;
+	top: 80px;
+}
+
+.card_background_bleeding_0_normal, .card_background_bleeding_0_pimp, .card_background_bleeding_0_starting{
+	width:488px;
+	height: 750px;
+}
+
+.card_background_bleeding_1_normal, .card_background_bleeding_1_pimp, .card_background_bleeding_1_starting{
+	width:488px;
+	height: 822px;
+	margin-top: -36px;
+}
+
+.card_background_bleeding_2_normal, .card_background_bleeding_2_pimp, .card_background_bleeding_2_starting{
+	width:597px;
+	height: 822px;
+	margin-top: -36px;
+	margin-left: -55px;
+}
+
+.card_background_bleeding_3_normal, .card_background_bleeding_3_pimp, .card_background_bleeding_3_starting{
+    width:648px;
+    height: 910px;
+    margin-top: -80px;
+    margin-left: -80px;
+}
+
+.card_background_bleeding_0_normal, .card_background_bleeding_1_normal, .card_background_bleeding_2_normal{
+    background-image:url("img/bp/background_normal.png");
+}
+
+.card_background_bleeding_3_normal{
+    background-image:url("img/bp/bleeding_normal2.png");
+}
+
+.card_background_bleeding_0_pimp, .card_background_bleeding_1_pimp, .card_background_bleeding_2_pimp{
+    background-image:url("img/bp/background_vault.png");
+}
+
+.card_background_bleeding_3_pimp{
+    background-image:url("img/bp/bleeding_vault.png");
+}
+
+.card_background_bleeding_0_starting, .card_background_bleeding_1_starting, .card_background_bleeding_2_starting{
+    background-image:url("img/bp/background_starting.png");
+}
+
+.card_background_bleeding_3_starting{
+    background-image:url("img/bp/bleeding_starting.png");
+}
+
+.card_bleeding_area_bleeding_1{
+    width:597px;
+    height: 822px;
+    background-repeat: no-repeat;
+}
+
+.card_bleeding_area_bleeding_2 {
+    width:597px;
+    height: 822px;
+    background-repeat: no-repeat;
+}
+
+.card_bleeding_area_bleeding_3 {
+    width:648px;
+    height: 910px;
+    background-repeat: no-repeat;
+}
+
+.card_background{
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.card_bleeding_area_bleeding_0 {
+    width:488px;
+    height: 750px;
+    background-repeat: no-repeat;
+}
+
+#card_bleeding_area {
+    background-color: white;
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+}
+
+#calque_card_border_preview{
+    background-color: transparent;
+    height: 750px;
+    pointer-events: none;
+    border: 1px solid black;
+    border-radius: 30px;
+    display:none;
+    top: 0px;
+}
+
+.calque_card_border_preview_bleeding_1 ,.calque_card_border_preview_bleeding_0, .calque_card_border_preview_bleeding_3{
+    width:488px;
+}
+
+.calque_card_border_preview_bleeding_2 {
+    width:525px;
+    margin-left: -18px;
+}
+
+#main button {
+    width: 100%;
+}
+
+textarea {
+    width: 100%;
+}
+
+#card_image {
+    position: absolute;
+    top: 200px;
+    left:50px;
+    max-width: 100%;
+    cursor: move;
+    display:none;
+}
+
+#card_image_shadow {
+    position: absolute;
+    display: none;
+    max-width: 100%;
+}
+
+.card_stats {
+    position: absolute;
+    font-family: ZBP Stats;
+    bottom: 32px;
+    font-size: 25pt;
+    color:#000000;
+    text-align:left;
+    line-height: 0.9em;
+    width: 100%;
+    letter-spacing: -2.5px;
+    white-space: nowrap;
+}
+
+#output_range {
+    left:80px;
+    width: 83px;
+}
+
+#output_nb_dice {
+    left:173px
+}
+
+#output_val_dice {
+    left:268px
+}
+
+#output_power {
+    left:360px
+}
+
+#card_file {
+    margin-top:10px
+}
+
+#langage_panel .dropdown-menu {
+    min-width: 0px;
+}
+
+.input_card_stats {
+    width:24px;
+}
+
+.calque{
+    position:absolute;
+}
+
+.calque_slot {
+    top:0px;
+    background-position: inherit;
+    background-repeat: no-repeat;
+}
+
+.calque_slot_armor {
+    background-image: url("img/bp/slot_armor.png");
+}
+
+.calque_slot_hand {
+    background-image: url("img/bp/slot_hand.png");
+}
+
+.calque_slot_bag {
+    background-image: url("img/bp/slot_bag.png");
+}
+
+.calque_slot_bleeding_3{
+    width: 568px;
+    height: 305px;
+    margin-top: -80px;
+    margin-left:-40px;
+}
+
+.calque_slot_bleeding_0{
+    width: 488px;
+    height: 225px;
+}
+
+.calque_slot_bleeding_1, .calque_slot_bleeding_2 {
+    width: 598px;
+    height: 290px;
+    margin-top: -65px;
+    margin-left: -55px;
+}
+
+.calque_door {
+    background-image: url("img/bp/door.png");top:488px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.calque_door_bleeding_3{
+    width: 568px;
+    height: 305px;
+    margin-top: -80px;
+    margin-left:-40px;
+}
+
+.calque_door_bleeding_0{
+    width: 488px;
+    height: 225px;
+}
+
+.calque_door_bleeding_1, .calque_door_bleeding_2 {
+    width: 598px;
+    height: 290px;
+    margin-top: -65px;
+    margin-left: -55px;
+}
+
+.calque_break_in_noise {
+    top:488px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.calque_break_in_noise_noisy {
+    background-image: url("img/bp/door.png");
+}
+
+.calque_break_in_noise_silent{
+    /*background-image: url("img/SilentBreakIn.png");*/
+    background-image: url("img/bp/door.png");
+}
+
+.calque_break_in_noise_bleeding_3{
+    width: 568px;
+    height: 305px;
+    margin-top: -80px;
+    margin-left:-40px;
+}
+
+.calque_break_in_noise_bleeding_0{
+    width: 488px;
+    height: 225px;
+}
+
+.calque_break_in_noise_bleeding_1, .calque_break_in_noise_bleeding_2 {
+    width: 598px;
+    height: 290px;
+    margin-top: -65px;
+    margin-left: -55px;
+}
+
+.calque_dice {
+    background-image: url("img/bp/door.png");top:488px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.calque_dice_bleeding_3{
+    width: 568px;
+    height: 305px;
+    margin-top: -80px;
+    margin-left:-40px;
+}
+
+.calque_dice_bleeding_0{
+    width: 488px;
+    height: 225px;
+}
+
+.calque_dice_bleeding_1, .calque_dice_bleeding_2 {
+    width: 598px;
+    height: 290px;
+    margin-top: -65px;
+    margin-left: -55px;
+}
+
+.calque_kill_noise{
+    top:525;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+.calque_kill_noise_noisy {
+    background-image: url("img/bp/kill_noisy.png");
+}
+
+.calque_kill_noise_silent{
+    background-image: url("img/bp/kill_silent.png");
+}
+
+.calque_kill_noise_bleeding_0{
+    width: 488px;
+    height: 225px;
+}
+
+.calque_kill_noise_bleeding_3{
+    width: 568px;
+    height: 305px;
+    margin-top: -80px;
+    margin-left:-40px;
+}
+
+.calque_kill_noise_bleeding_1, .calque_kill_noise_bleeding_2{
+    width: 598px;
+    height: 290px;
+    margin-top: -65px;
+    margin-left: -55px;
+}
+
+.calque_dual {
+    background-image:url("img/bp/weapon_dual.png");
+    top:0px;
+    background-position: inherit;
+    background-repeat: no-repeat;
+}
+
+.calque_dual_bleeding_0 {
+    width: 488px;
+    height: 225px;
+}
+
+.calque_dual_bleeding_1, .calque_dual_bleeding_2 {
+    width: 598px;
+    height: 290px;
+    margin-top: -65px;
+    margin-left: -55px;
+}
+
+.calque_dual_bleeding_3 {
+    width: 568px;
+    height: 305px;
+    margin-top: -80px;
+    margin-left:-40px;
+}
+
+.calque_ultrarouge {
+    background-image:url("img/bp/weapon_red.png");
+    top:0px;
+    background-position: inherit;
+    background-repeat: no-repeat;
+}
+
+.calque_ultraorange {
+    background-image:url("img/bp/weapon_orange.png");
+    top:0px;
+    background-position: inherit;
+    background-repeat: no-repeat;
+}
+
+.calque_ultrayellow {
+    background-image:url("img/bp/weapon_yellow.png");
+    top:0px;
+    background-position: inherit;
+    background-repeat: no-repeat;
+}
+
+.calque_ultrarouge_bleeding_0 {
+    width: 488px;
+    height: 225px;
+}
+
+.calque_ultraorange_bleeding_0 {
+	width: 488px;
+	height: 225px;
+}
+
+.calque_ultrayellow_bleeding_0 {
+	width: 488px;
+	height: 225px;
+}
+
+.calque_ultrarouge_bleeding_1, .calque_ultrarouge_bleeding_2 {
+    width: 598px;
+    height: 290px;
+    margin-top: -65px;
+    margin-left: -55px;
+}
+
+.calque_ultraorange_bleeding_1, .calque_ultraorange_bleeding_2 {
+    width: 598px;
+    height: 290px;
+    margin-top: -65px;
+    margin-left: -55px;
+}
+
+.calque_ultrayellow_bleeding_1, .calque_ultrayellow_bleeding_2 {
+    width: 598px;
+    height: 290px;
+    margin-top: -65px;
+    margin-left: -55px;
+}
+
+.calque_ultrarouge_bleeding_3 {
+    width: 568px;
+    height: 305px;
+    margin-top: -80px;
+    margin-left:-40px;
+}
+
+.calque_ultraorange_bleeding_3 {
+	width: 568px;
+	height: 305px;
+	margin-top: -80px;
+	margin-left:-40px;
+}
+
+.calque_ultrayellow_bleeding_3 {
+	width: 568px;
+	height: 305px;
+	margin-top: -80px;
+	margin-left:-40px;
+}
+
+.calque_parchemin {
+    background-image:url("img/bp/parchemin_arme_0.png");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    bottom: 0px;
+}
+
+.calque_parchemin_bleeding_0 {
+    width: 488px;
+    height: 225px;
+}
+
+.calque_parchemin_bleeding_1, .calque_parchemin_bleeding_2 {
+    width: 598px;
+    height: 290px;
+    margin-top: -65px;
+    margin-left: -55px;
+}
+
+.calque_parchemin_bleeding_3 {
+    width: 568px;
+    height: 305px;
+    margin-top: -80px;
+    margin-left:-40px;
+}
+
+.calque_stats {
+    background-image:url("img/bp/parchemin_arme_stats.png");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    width:426px;
+    bottom: 0px;
+    left: 26px;
+}
+
+.calque_stats_bleeding_0 {
+	height:140px;
+}
+
+.calque_stats_bleeding_1, .calque_stats_bleeding_2 {
+	height:176px;
+	margin-bottom:-36px;
+}
+
+.calque_stats_bleeding_3 {
+	height:220px;
+	margin-bottom:-80px;
+}
+
+.calque_description {
+    background-repeat: no-repeat;
+    background-position: bottom;
+    width:488px;
+
+    
+/*    background-position: bottom;
+    width:488px;
+    top: 508px;
+    height:241px;*/
+/*    left: 26px;*/
+/*    cursor: move;*/
+}
+
+#output_griffe{
+	cursor: move;
+}
+
+.calque_description_bleeding_0 {
+    height:201px;
+}
+
+.calque_description_bleeding_1, .calque_description_bleeding_2 {
+    height:237px;
+    margin-bottom:-36px;
+}
+
+.calque_description_bleeding_3 {
+    height:281px;
+    margin-bottom:-80px;
+}
+
+.libelle_capacite_compagnon{
+    color: black;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.optional {
+    display:none;
+}
+
+#output_card_header {
+    position:absolute;
+    width: 488px;
+    top:28px;
+    text-align:center;
+}
+
+#output_card_header p{
+    margin: 0;
+}
+
+#output_card_name {
+    font-family: Algo FY;
+    /* 89px -> 65pt */
+    font-size: 37pt;
+    color:#483627;
+    line-height: 0.8em;
+    text-align: center;
+    letter-spacing: -2px;
+}
+
+#output_card_sub_name {
+    font-family: EurostileLTStd;
+    font-size: 18pt;
+    color:#5C5C5F;
+    line-height: 1em;
+    padding-top: 5px;
+}
+
+#output_description_container {
+    font-size: 18pt;
+    color:#5C5C5F;
+    width:488px;
+}
+
+#output_description_container  tr{
+    vertical-align: middle;
+}
+
+#output_description_container  tr td{
+    font-family: Arek Semibold Italic;
+    font-size: 21pt;
+    color:#000000;
+    text-align:center;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.img_de {
+    margin-top: -7px;
+}
+
+@font-face {
+    font-family: EurostileLTStd;
+    src: url("fonts/EurostileLTStd-BoldCn.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Crackhouse;
+    src: url('fonts/crackhouse.ttf');
+}
+
+@font-face {
+    font-family: Algo FY;
+    src: url("fonts/bp/Algo_FY_Regular.ttf");
+}
+
+@font-face {
+    font-family: Arek Bold Italic;
+    src: url("fonts/bp/Arek Bold Italic.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Arek Semibold Italic;
+    src: url("fonts/bp/Arek Semibold Italic.otf") format("opentype");
+}
+
+@font-face {
+    font-family: ZBP Stats;
+    src: url("fonts/bp/ZBP_STATS.TTF");
+}
+
+#input_dual_container tr {
+    vertical-align: middle;
+}
+
+#input_dual_container img {
+    width: 30px;
+    height: 30px;
+}
