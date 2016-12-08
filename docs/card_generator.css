@@ -534,17 +534,11 @@ textarea {
 }
 
 .calque_description {
+    background-image: url("img/bp/parchemin.png");
     background-repeat: no-repeat;
-    background-position: bottom;
+    background-position: top;
     width:488px;
-
-    
-/*    background-position: bottom;
-    width:488px;
-    top: 508px;
-    height:241px;*/
-/*    left: 26px;*/
-/*    cursor: move;*/
+    height: 750px;
 }
 
 #output_griffe{
@@ -597,22 +591,31 @@ textarea {
 }
 
 #output_card_sub_name {
-    font-family: EurostileLTStd;
+    font-family: Arek Bold Italic;
     font-size: 18pt;
-    color:#5C5C5F;
+    color:#000000;
     line-height: 1em;
     padding-top: 5px;
+    text-align: center;
+}
+
+#output_card_sub_name_container {
+    width:488px;
+    border: 1px solid black;
 }
 
 #output_description_container {
-    font-size: 18pt;
-    color:#5C5C5F;
+    font-family: Arek Semibold Italic;
+    font-size: 28px;
+    color:#000000;
     width:488px;
+    border: 1px solid black;
+    text-align: center;
 }
 
-#output_description_container  tr{
+/*#output_description_container  tr{
     vertical-align: middle;
-}
+}*/
 
 #output_description_container  tr td{
     font-family: Arek Semibold Italic;
