@@ -583,11 +583,13 @@ textarea {
 #output_card_name {
     font-family: Algo FY;
     /* 89px -> 65pt */
+/*    font-size: 37pt;*/
     font-size: 37pt;
     color:#483627;
     line-height: 0.8em;
     text-align: center;
-    letter-spacing: -2px;
+    letter-spacing: -3px;
+    
 }
 
 #output_card_sub_name {
