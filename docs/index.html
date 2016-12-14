@@ -189,29 +189,6 @@
                         </div>
                     </div>
                     
-                    <!-- Arme dual -->
-                    <div class="panel panel-default">					             
-                        <div class="panel-heading">Arme dual           
-                        </div>					                                   					             
-                        <div class="panel-body">						             
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" id="input_dual"/> Arme dual
-                                </label>
-                            </div>							
-                        </div>					         
-                    </div>
-                    
-                    <!-- Sous-titre -->
-                    <!-- <div class="panel panel-default help" data-container="body" data-toggle="popover" title="Astuce !" data-placement="right" data-content="Vous pouvez insérer des images de dés en utilisant les codes [1], [2], [3], [4], [5] et [6]">
-                        <div class="panel-heading">Sous-titre
-                        </div>
-                        
-                        <div class="panel-body">
-                            <textarea id="input_card_sub_name" rows="3" class="form-control"></textarea>
-                        </div>
-                    </div> -->
-                    
                     <!-- Image de la carte -->
                     <div class="panel panel-default help"  data-container="body" data-toggle="popover" title="Astuce !" data-placement="right" data-content="L'image peut être déplacée librement par drag'n drop directement sur l'aperçu.">
                         <div class="panel-heading">Image de la carte
@@ -240,8 +217,21 @@
                         </div>
                     </div>
                     
-                    <!-- Statistiques -->
+                    <!-- Statistiques et description-->
                     <div class="panel panel-default">
+                        <!-- Sous-titre -->
+                        <div class="panel-heading">Sous-titre
+                        </div>
+                        <div class="panel-body">
+                            <textarea id="input_card_sub_name" rows="1" class="form-control"></textarea>
+                        </div>
+                        <!-- Description -->
+                        <div class="panel-heading">Description
+                        </div>
+                        <div class="panel-body">
+                            <textarea id="input_description" rows="5" class="form-control" ></textarea>
+                        </div>
+                        <!-- Statistiques -->
                         <div class="panel-heading">Statistiques
                         </div>
                         <div class="panel-body">
@@ -264,15 +254,6 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Description -->
-                    <div class="panel panel-default help" data-container="body" data-toggle="popover" title="Astuce !" data-placement="right" data-content="Vous pouvez insérer des images de dés en utilisant les codes [1], [2], [3], [4], [5] et [6]<br/><br/>Vous pouvez insérer les libellés actif et passif des compagnons en utilisant les codes [actif] et [passif]<br/><br/>Le cadre de texte peut être déplacé en hauteur directement dans l'aperçu">
-                        <div class="panel-heading">Description
-                        </div>
-                        <div class="panel-body">
-                            <textarea id="input_description" rows="4" class="form-control" ></textarea>
-                        </div>
-                    </div>
                 </div>
                 
                 <div class="col-md-6" id="column-middle">
@@ -292,9 +273,16 @@
                             <img id="card_image_shadow" src="" />
                             <img id="card_image" src="" />
                             <div id="calque_description" class="calque calque_description">
-                                <table id="output_description_container">
+                                <table>
                                     <tr>
-                                        <td id="output_description"/></td>
+                                        <td id="output_card_sub_name_container">
+                                            <div id="output_card_sub_name"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td id="output_description_container">
+                                            <div id="output_description"></div>
+                                        </td><td id="output_description"/></td>
                                     </tr>
                                 </table>
                             </div>
@@ -372,6 +360,19 @@
                                 </label>
                             </div>
                         </div>
+                    </div>
+                    
+                    <!-- Arme dual -->
+                    <div class="panel panel-default">					             
+                        <div class="panel-heading">Arme dual           
+                        </div>					                                   					             
+                        <div class="panel-body">						             
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="input_dual"/> Arme dual
+                                </label>
+                            </div>							
+                        </div>					         
                     </div>
                     
                     <!-- Ouverture de portes -->

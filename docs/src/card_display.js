@@ -25,7 +25,7 @@ function output_headers(){
     
     //TODO: à revoir, c'est pas tarrible !
     $("#output_card_name").html(card_name?replace_carriage_return(card_name):"");
-    //$("#output_card_sub_name").html(replace_dices(card_sub_name?replace_carriage_return(card_sub_name).toUpperCase():""));
+    $("#output_card_sub_name").html(replace_dices(card_sub_name?replace_carriage_return(card_sub_name).toUpperCase():""));
 }
 
 function output_card_level() {
@@ -192,26 +192,18 @@ function output_description(){
     
     if (description) {
         var lines = get_number_of_lines(description);
-        if (lines == 1){
-            $("#calque_description").css("background-image", "url(img/bp/parchemin_1.png)");
-            $("#calque_description").css("top", "605px");
-            $("#calque_description").css("height", "145px");
-        } else if (lines == 2){
-            $("#calque_description").css("background-image", "url(img/bp/parchemin_2.png)");
-            $("#calque_description").css("top", "610px");
-            $("#calque_description").css("height", "140px");
-        } else if (lines == 3){
-            $("#calque_description").css("background-image", "url(img/bp/parchemin_3.png)");
-            $("#calque_description").css("top", "573px");
-            $("#calque_description").css("height", "177px");
-        } else if (lines == 4){
-            $("#calque_description").css("background-image", "url(img/bp/parchemin_4.png)");
-            $("#calque_description").css("top", "530px");
+        if (lines >= 7){
+            $("#calque_description").css("top", "0px");
             $("#calque_description").css("height", "220px");
-        } else if (lines == 5){
-            $("#calque_description").css("background-image", "url(img/bp/parchemin_5.png)");
-            $("#calque_description").css("top", "541px");
-            $("#calque_description").css("height", "209px");
+        } else if (lines >= 5){
+            $("#calque_description").css("top", "10px");
+            $("#calque_description").css("height", "177px");
+        } else if (lines >= 3){
+            $("#calque_description").css("top", "20px");
+            $("#calque_description").css("height", "150px");
+        } else if (lines >= 1){
+            $("#calque_description").css("top", "30px");
+            $("#calque_description").css("height", "125px");
         } else {
             
         }
@@ -221,6 +213,7 @@ function output_description(){
         //$("#output_description").html(replace_comp_capa(replace_dices(description.toUpperCase())));
         $("#calque_description").show();
         $(".input_card_stats").prop('disabled', true);
+        
     } else {
         $("#calque_description").removeAttr("style");
         $("#output_description").html("");
