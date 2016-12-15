@@ -44,11 +44,11 @@ function save_stats() {
 }
 
 function save_headers() {
-	set_locale_string("card_name",$("#input_card_name").val());
-	set_locale_string("card_sub_name",$("#input_card_sub_name").val());
-	display_unsaved_data_alert();
+    set_locale_string("card_name",$("#input_card_name").val());
 	
-	output_headers();
+    display_unsaved_data_alert();
+	
+    output_headers();
 }
 
 function save_card_level(){
@@ -152,6 +152,10 @@ function save_dual(){
 function save_description(){
     var description = $("#input_description").val();
     set_locale_string("description",description);
+    
+    var card_sub_name = $("#input_card_sub_name").val();
+    set_locale_string("card_sub_name",card_sub_name);
+    
     display_unsaved_data_alert();
 
     // réinitialisation de la position du cadre
@@ -196,7 +200,8 @@ $(document).ready(function() {
     
     $(".input_card_stats").keyup(save_stats);
     $("#input_card_name").keyup(save_headers);
-    $("#input_card_sub_name").keyup(save_headers);
+    
+    $("#input_card_sub_name").keyup(save_description);
     $("#input_description").keyup(save_description);
     
     $("input[name='input_card_level']").click(save_card_level);
