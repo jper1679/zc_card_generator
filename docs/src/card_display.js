@@ -2,30 +2,13 @@
  * Mise à jour de l'apercu en fonction du modèle en mémoire
  */
 
-function output_stats(){
-    if (is_stats()) {
-        $("#calque_parchemin").show();
-        $("#calque_stats").show();
-        $("#input_description").prop('disabled', true);
-    } else {
-        $("#calque_parchemin").hide();
-        $("#calque_stats").hide();
-        $("#input_description").prop('disabled', false);
-    }
-    $("#output_range").html(current_card.range?current_card.range:"");
-    $("#output_nb_dice").html(current_card.nb_dices?current_card.nb_dices:"");
-    $("#output_val_dice").html(current_card.val_dices?current_card.val_dices:"");
-    $("#output_power").html(current_card.power?current_card.power:"");
-    output_griffe();
-}
-
 function output_headers(){
     var card_name = get_locale_string("card_name");
-    var card_sub_name = get_locale_string("card_sub_name");
+//    var card_sub_name = get_locale_string("card_sub_name");
     
     //TODO: à revoir, c'est pas tarrible !
     $("#output_card_name").html(card_name?replace_carriage_return(card_name):"");
-    $("#output_card_sub_name").html(replace_dices(card_sub_name?replace_carriage_return(card_sub_name).toUpperCase():""));
+//    $("#output_card_sub_name").html(replace_dices(card_sub_name?replace_carriage_return(card_sub_name).toUpperCase():""));
 }
 
 function output_card_level() {
@@ -187,38 +170,95 @@ function update_descripion_text_position(){
 	}
 }
 
+function output_stats(){
+    if (is_stats()) {
+        $("#calque_parchemin").show();
+        $("#calque_stats").show();
+//        $("#input_description").prop('disabled', true);
+    } else {
+        $("#calque_parchemin").hide();
+        $("#calque_stats").hide();
+//        $("#input_description").prop('disabled', false);
+    }
+    $("#output_range").html(current_card.range?current_card.range:"");
+    $("#output_nb_dice").html(current_card.nb_dices?current_card.nb_dices:"");
+    $("#output_val_dice").html(current_card.val_dices?current_card.val_dices:"");
+    $("#output_power").html(current_card.power?current_card.power:"");
+    output_griffe();
+}
+
 function output_description(){
-    var description = get_locale_string("description");
+    //TO DO - Merge output_description et output_stats
     
-    if (description) {
+    var top_parchemin = 0;
+    var top_description = 0;
+    var height_sub_name = 0;
+
+    var description = get_locale_string("description");
+    var card_sub_name = get_locale_string("card_sub_name");
+    
+    if (description){
+        
+        
         var lines = get_number_of_lines(description);
         if (lines >= 7){
-            $("#calque_description").css("top", "0px");
-            $("#calque_description").css("height", "220px");
+            top_parchemin = 50;
+            top_description = 480;
         } else if (lines >= 5){
-            $("#calque_description").css("top", "10px");
-            $("#calque_description").css("height", "177px");
+            top_parchemin = 90;
+            top_description = 515;
         } else if (lines >= 3){
-            $("#calque_description").css("top", "20px");
-            $("#calque_description").css("height", "150px");
+            top_parchemin = 135;
+            top_description = 565;
         } else if (lines >= 1){
-            $("#calque_description").css("top", "30px");
-            $("#calque_description").css("height", "125px");
+            top_parchemin = 201;
+            top_description = 640;
         } else {
-            
+
+        }
+    } else {
+        top_parchemin = 0;
+        top_description = 0;
+    }
+    
+    if (card_sub_name) {
+        var sub_height = 40;
+        height_sub_name = sub_height;
+        
+        if(description){
+            top_parchemin = top_parchemin - sub_height;
+            top_description = top_description - sub_height;
+        } else {
+            top_parchemin = 200;
+            top_description = 640;
+        }
+    } else {
+        height_sub_name = 0;
+    }   
+    
+    if (description || card_sub_name) {
+        
+        $("#calque_parchemin").css("top", top_parchemin.toString()+"px");
+        $("#output_card_sub_name_container").css("height", height_sub_name.toString()+"px");
+        $("#calque_description").css("top", top_description.toString()+"px");
+        
+        if(description){
+            $("#output_description").html(replace_comp_capa(replace_dices(replace_carriage_return(description))));
+        }
+        if(card_sub_name){
+            $("#output_card_sub_name").html(replace_dices(card_sub_name?replace_carriage_return(card_sub_name).toUpperCase():""));
         }
         
-        description = replace_carriage_return(description);
-        $("#output_description").html(replace_comp_capa(replace_dices(description)));
-        //$("#output_description").html(replace_comp_capa(replace_dices(description.toUpperCase())));
         $("#calque_description").show();
-        $(".input_card_stats").prop('disabled', true);
-        
+        $("#calque_parchemin").show();
+//        $(".input_card_stats").prop('disabled', true);
     } else {
         $("#calque_description").removeAttr("style");
         $("#output_description").html("");
         $("#calque_description").hide();
-        $(".input_card_stats").prop('disabled', false);
+        $("#calque_parchemin").hide();
+        
+//        $(".input_card_stats").prop('disabled', false);
     }
     update_descripion_text_position();
     output_griffe();

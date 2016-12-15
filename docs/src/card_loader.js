@@ -47,9 +47,8 @@ function load_stats(){
 }
 
 function load_headers(){
-	$("#input_card_name").val(get_locale_string("card_name"));
-	$("#input_card_sub_name").val(get_locale_string("card_sub_name"));
-	output_headers();
+    $("#input_card_name").val(get_locale_string("card_name"));
+    output_headers();
 }
 
 function load_card_level(){
@@ -73,9 +72,6 @@ function load_break_in_noise(){
     $("#input_break_in_noisy").prop("checked",current_card.noisy_break_in);
     $("#input_break_in_silent").prop("checked",current_card.silent_break_in);
     $("#calque_break_in_noise").css("top",current_card.break_in_noise_top);
-    
-    
-    
     output_break_in_noise();
 }
 
@@ -103,9 +99,9 @@ function load_dual(){
 }
 
 function load_description(){
-	var description = get_locale_string("description");
-	$("#input_description").val(description);
-	
+	$("#input_description").val(get_locale_string("description"));
+        $("#input_card_sub_name").val(get_locale_string("card_sub_name"));
+        
 	$("#calque_description").css("top",current_card.description_top);
 	update_descripion_text_position();
 	
