@@ -25,12 +25,12 @@ padding-bottom: 20px;
 }
 
 .hidden{
-	display:none;
+    display:none;
 }
 
 nav li div.radio , nav li div.checkbox{
-	margin-left: 20px;
-	margin-right: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 nav li div.radio label, nav li div.checkbox label{
@@ -44,31 +44,31 @@ nav li div.radio label, nav li div.checkbox label{
 }
 
 .card_overlay_bleeding_2, .card_overlay_bleeding_1{
-	left: 55px;
-	top:36px;
+    left: 55px;
+    top:36px;
 }
 
 .card_overlay_bleeding_3{
-	left: 80px;
-	top: 80px;
+    left: 80px;
+    top: 80px;
 }
 
 .card_background_bleeding_0_normal, .card_background_bleeding_0_pimp, .card_background_bleeding_0_starting{
-	width:488px;
-	height: 750px;
+    width:488px;
+    height: 750px;
 }
 
 .card_background_bleeding_1_normal, .card_background_bleeding_1_pimp, .card_background_bleeding_1_starting{
-	width:488px;
-	height: 822px;
-	margin-top: -36px;
+    width:488px;
+    height: 822px;
+    margin-top: -36px;
 }
 
 .card_background_bleeding_2_normal, .card_background_bleeding_2_pimp, .card_background_bleeding_2_starting{
-	width:597px;
-	height: 822px;
-	margin-top: -36px;
-	margin-left: -55px;
+    width:597px;
+    height: 822px;
+    margin-top: -36px;
+    margin-left: -55px;
 }
 
 .card_background_bleeding_3_normal, .card_background_bleeding_3_pimp, .card_background_bleeding_3_starting{
@@ -247,8 +247,6 @@ textarea {
 .calque_slot_bleeding_3{
     width: 568px;
     height: 305px;
-    margin-top: -80px;
-    margin-left:-40px;
 }
 
 .calque_slot_bleeding_0{
@@ -259,8 +257,6 @@ textarea {
 .calque_slot_bleeding_1, .calque_slot_bleeding_2 {
     width: 598px;
     height: 290px;
-    margin-top: -65px;
-    margin-left: -55px;
 }
 
 .calque_door {
@@ -433,55 +429,43 @@ textarea {
 }
 
 .calque_ultraorange_bleeding_0 {
-	width: 488px;
-	height: 225px;
+    width: 488px;
+    height: 225px;
 }
 
 .calque_ultrayellow_bleeding_0 {
-	width: 488px;
-	height: 225px;
+    width: 488px;
+    height: 225px;
 }
 
 .calque_ultrarouge_bleeding_1, .calque_ultrarouge_bleeding_2 {
     width: 598px;
     height: 290px;
-    margin-top: -65px;
-    margin-left: -55px;
 }
 
 .calque_ultraorange_bleeding_1, .calque_ultraorange_bleeding_2 {
     width: 598px;
     height: 290px;
-    margin-top: -65px;
-    margin-left: -55px;
 }
 
 .calque_ultrayellow_bleeding_1, .calque_ultrayellow_bleeding_2 {
     width: 598px;
     height: 290px;
-    margin-top: -65px;
-    margin-left: -55px;
 }
 
 .calque_ultrarouge_bleeding_3 {
     width: 568px;
     height: 305px;
-    margin-top: -80px;
-    margin-left:-40px;
 }
 
 .calque_ultraorange_bleeding_3 {
 	width: 568px;
 	height: 305px;
-	margin-top: -80px;
-	margin-left:-40px;
 }
 
 .calque_ultrayellow_bleeding_3 {
 	width: 568px;
 	height: 305px;
-	margin-top: -80px;
-	margin-left:-40px;
 }
 
 .calque_parchemin {
@@ -516,23 +500,21 @@ textarea {
     background-image:url("img/bp/parchemin_arme_stats.png");
     background-repeat: no-repeat;
     background-position: bottom;
-    width:426px;
+    width: 426px;
     bottom: 0px;
     left: 26px;
 }
 
 .calque_stats_bleeding_0 {
-	height:140px;
+	height: 140px;
 }
 
 .calque_stats_bleeding_1, .calque_stats_bleeding_2 {
-	height:176px;
-	margin-bottom:-36px;
+	height: 176px;
 }
 
 .calque_stats_bleeding_3 {
-	height:220px;
-	margin-bottom:-80px;
+	height: 220px;
 }
 
 .calque_description {
