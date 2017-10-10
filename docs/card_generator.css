@@ -470,7 +470,7 @@ textarea {
     background-position: bottom;
     width:488px;
     height: 750px;
-    top: 0px;
+    /*top: 0px;*/
 }
 
 .calque_parchemin_bleeding_0 {
@@ -514,12 +514,18 @@ textarea {
 }
 
 .calque_description {
-    
     background-repeat: no-repeat;
+    background-position: top;
+    width:427px;
+/*    top: 549px;*/
+    left: 26px;
+    height:241px;
+
+/*    background-repeat: no-repeat;
     background-position: bottom;
     width:488px;
     height: 750px;
-    top: 640px;
+    top: 640px;*/
 }
 
 #output_griffe{
@@ -573,12 +579,15 @@ textarea {
 
 #output_card_sub_name {
     font-family: Arek Bold Italic;
-    font-size: 18pt;
+    font-size: 20pt;
     color:#000000;
     line-height: 1em;
     padding-top: 0px;
     text-align: center;
+/*    border: 1px solid black;*/
 }
+
+
 
 #output_card_sub_name_container {
     width:488px;
@@ -588,19 +597,30 @@ textarea {
 }
 
 #output_description {
-    font-family: Arek Italic;
-    font-size: 21pt;
+    font-family: Arek Semibold Italic;
+    font-size: 20pt;
     color:#000000;
     text-align: center;
     letter-spacing: -0.5px;
-    line-height: 120%;
+    line-height: 115%;
 }
 
 #output_description_container {
     width: 488px;
-    /*border: 1px solid black;*/
     vertical-align: top;
     height: 50px;
+}
+
+#input_position_parchemin{
+    width: 3em;
+}
+
+#input_card_sub_name_size{
+    width: 3em;
+}
+
+#input_card_description_size{
+    width: 3em;
 }
 
 /*#output_description_container  tr{

@@ -79,6 +79,14 @@ function create_card_image_shadow(){
     shadowImg.src = canvas.toDataURL();
 }
 
+function is_description(){
+    return current_card.description && true;
+}
+
+function is_card_sub_name(){
+    return current_card.card_sub_name && true;
+}
+
 function is_stats(){
     return current_card.range && current_card.range!=""
         || current_card.nb_dices && current_card.nb_dices != ""

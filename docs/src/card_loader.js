@@ -101,10 +101,18 @@ function load_dual(){
 function load_description(){
 	$("#input_description").val(get_locale_string("description"));
         $("#input_card_sub_name").val(get_locale_string("card_sub_name"));
+
+        $("#input_card_sub_name_size").val(get_locale_string("card_sub_name_size"));
+        $("#input_card_description_size").val(get_locale_string("card_description_size"));
         
 	$("#calque_description").css("top",current_card.description_top);
 	update_descripion_text_position();
 	
+	output_description();
+}
+
+function load_position_parchemin(){
+        $("#input_position_parchemin").val(get_locale_string("position_parchemin"));
 	output_description();
 }
 

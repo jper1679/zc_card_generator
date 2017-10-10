@@ -225,24 +225,57 @@
                         </div>
                     </div>
                     
-                    <!-- Statistiques et description-->
+                    <!-- Parchemin -->
                     <div class="panel panel-default">
-                        <!-- Sous-titre -->
-                        <div class="panel-heading">Sous-titre
+                        <div class="panel-heading">Parchemin
                         </div>
+                        
                         <div class="panel-body">
-                            <textarea id="input_card_sub_name" rows="1" class="form-control"></textarea>
-                        </div>
-                        <!-- Description -->
-                        <div class="panel-heading">Description
-                        </div>
-                        <div class="panel-body">
+                            <!-- Position du parchemin -->
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    Position
+                                </div>
+                                <div class="col-xs-4">
+                                    <input id="input_position_parchemin" type="number" min="0" max="1000" step="1" value="100"/>
+                                </div>
+                            </div>
+                            <br>
+                            
+                            <!-- Sous-titre -->
+                            <div class="row">
+                                <div class="col-md-8">
+                                    Sous-titre
+                                    <br>
+                                    <textarea id="input_card_sub_name" rows="1" class="form-control"></textarea>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    Taille
+                                    <br>
+                                    <input id="input_card_sub_name_size" type="number" min="10" max="50" step="1" value="22"/>
+                                </div>
+                            </div>
+                            <br>
+                            
+                            <!-- Description -->
+                            <div class="row">
+                                <div class="col-md-8">
+                                    Description
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <input id="input_card_description_size" type="number" min="10" max="50" step="1" value="22"/>
+                                </div>
+                            </div>
+                            <br>
+                            
+                            
                             <textarea id="input_description" rows="5" class="form-control" ></textarea>
-                        </div>
-                        <!-- Statistiques -->
-                        <div class="panel-heading">Statistiques
-                        </div>
-                        <div class="panel-body">
+                            <br>
+                            
+                            <!-- Statistiques -->
+                            Statistiques
                             <div class="row">
                                 <div class="col-md-3">
                                     <textarea id="input_range" rows="3" class="form-control input_card_stats"></textarea>
@@ -272,6 +305,7 @@
                     <div id="card_bleeding_area" class="calque_bleeding">
                         <div id="card_overlay" class="card_overlay_preview calque_bleeding">
                             <div id="card_background" class="card_background calque_bleeding"></div>
+                            <img id="card_image" src="" />
                             <div id="calque_parchemin" class="calque calque_parchemin optional calque_bleeding"></div>
                             <div id="calque_stats" class="calque calque_stats optional calque_bleeding"></div>
                             <div id="output_range" class="card_stats"></div>
@@ -279,7 +313,6 @@
                             <div id="output_val_dice" class="card_stats"></div>
                             <div id="output_power" class="card_stats"></div>
                             <img id="card_image_shadow" src="" />
-                            <img id="card_image" src="" />
                             <div id="calque_description" class="calque calque_description">
                                 <table>
                                     <tr>

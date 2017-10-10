@@ -165,102 +165,82 @@ function update_descripion_text_position(){
 	
 	// update griffe position
 	if(current_card.griffe_image){
-		var delta = $("#calque_description").position().top-start_top_description;
+		var delta = $("#calque_description").position().top - start_top_description;
 		$("#output_griffe").css("top",start_top_griffe+delta);
 	}
 }
 
 function output_stats(){
     if (is_stats()) {
-        $("#calque_parchemin").show();
+        //$("#calque_parchemin").show();
         $("#calque_stats").show();
 //        $("#input_description").prop('disabled', true);
     } else {
-        $("#calque_parchemin").hide();
+        //$("#calque_parchemin").hide();
         $("#calque_stats").hide();
 //        $("#input_description").prop('disabled', false);
     }
+    
     $("#output_range").html(current_card.range?current_card.range:"");
     $("#output_nb_dice").html(current_card.nb_dices?current_card.nb_dices:"");
     $("#output_val_dice").html(current_card.val_dices?current_card.val_dices:"");
     $("#output_power").html(current_card.power?current_card.power:"");
     output_griffe();
+    output_description();
 }
 
 function output_description(){
-    //TO DO - Merge output_description et output_stats
-    
-    var top_parchemin = 0;
-    var top_description = 0;
-    var height_sub_name = 0;
-
     var description = get_locale_string("description");
     var card_sub_name = get_locale_string("card_sub_name");
+    var position_parchemin = get_locale_string("position_parchemin");
+    var card_sub_name_size = get_locale_string("card_sub_name_size");
+    var card_description_size = get_locale_string("card_description_size");
     
-    if (description){
-        
-        
-        var lines = get_number_of_lines(description);
-        if (lines >= 7){
-            top_parchemin = 50;
-            top_description = 480;
-        } else if (lines >= 5){
-            top_parchemin = 90;
-            top_description = 515;
-        } else if (lines >= 3){
-            top_parchemin = 135;
-            top_description = 565;
-        } else if (lines >= 1){
-            top_parchemin = 201;
-            top_description = 640;
-        } else {
+    //var top_description = (440 + position_parchemin);
+    //var top_description = 549;
+    var top_description = (440 + parseInt(position_parchemin));
 
-        }
+    if(card_sub_name){
+        //var top_description = top_description + position_parchemin;
+        card_sub_name = replace_carriage_return(card_sub_name);
+        $("#output_card_sub_name").html(replace_comp_capa(replace_dices(card_sub_name.toUpperCase())));
+        $("#output_card_sub_name").css("font-size", card_sub_name_size.toString() + "px");
     } else {
-        top_parchemin = 0;
-        top_description = 0;
+        $("#output_card_sub_name").html("");
     }
     
-    if (card_sub_name) {
-        var sub_height = 40;
-        height_sub_name = sub_height;
-        
-        if(description){
-            top_parchemin = top_parchemin - sub_height;
-            top_description = top_description - sub_height;
-        } else {
-            top_parchemin = 200;
-            top_description = 640;
-        }
+    if(description){
+        description = replace_carriage_return(description);
+        $("#output_description").html(replace_comp_capa(replace_dices(description)));
+        $("#output_description").css("font-size", card_description_size.toString() + "px");
     } else {
-        height_sub_name = 0;
-    }   
+        $("#output_description").html("");
+    }
     
     if (description || card_sub_name) {
-        
-        $("#calque_parchemin").css("top", top_parchemin.toString()+"px");
-        $("#output_card_sub_name_container").css("height", height_sub_name.toString()+"px");
-        $("#calque_description").css("top", top_description.toString()+"px");
-        
-        if(description){
-            $("#output_description").html(replace_comp_capa(replace_dices(replace_carriage_return(description))));
-        }
-        if(card_sub_name){
-            $("#output_card_sub_name").html(replace_dices(card_sub_name?replace_carriage_return(card_sub_name).toUpperCase():""));
-        }
-        
         $("#calque_description").show();
-        $("#calque_parchemin").show();
-//        $(".input_card_stats").prop('disabled', true);
+        $("#calque_description").css("top", top_description.toString() + "px");
     } else {
         $("#calque_description").removeAttr("style");
-        $("#output_description").html("");
         $("#calque_description").hide();
-        $("#calque_parchemin").hide();
-        
-//        $(".input_card_stats").prop('disabled', false);
     }
-    update_descripion_text_position();
+    //update_descripion_text_position();
+    output_griffe();
+    output_parchemin();
+}
+
+function output_parchemin(){
+    
+    var position_parchemin = get_locale_string("position_parchemin");
+    
+    $("#calque_parchemin").css("top", position_parchemin.toString() + "px");
+    
+    if (is_description() || is_card_sub_name() || is_stats()){
+        $("#calque_parchemin").show();
+    } else {
+        $("#calque_parchemin").hide();
+    }
+    $("#calque_parchemin").show();
     output_griffe();
 }
 
@@ -292,9 +272,7 @@ function output_griffe(){
 		}
 		
 		
-	}
-	
-	
+	}	
 }
 
 function output_image_max_range(){

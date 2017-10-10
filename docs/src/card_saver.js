@@ -156,6 +156,12 @@ function save_description(){
     var card_sub_name = $("#input_card_sub_name").val();
     set_locale_string("card_sub_name",card_sub_name);
     
+    var card_sub_name_size = $("#input_card_sub_name_size").val();
+    set_locale_string("card_sub_name_size",card_sub_name_size);
+    
+    var card_description_size = $("#input_card_description_size").val();
+    set_locale_string("card_description_size",card_description_size);
+    
     display_unsaved_data_alert();
 
     // réinitialisation de la position du cadre
@@ -164,7 +170,19 @@ function save_description(){
         delete current_card.griffe_image_top;
         delete current_card.griffe_image_left;
     }
+    
+    output_parchemin();
+    output_description();
+    
+}
 
+function save_position_parchemin(){
+    var position_parchemin = $("#input_position_parchemin").val();
+    set_locale_string("position_parchemin",position_parchemin);
+    
+    display_unsaved_data_alert();
+
+    output_parchemin();
     output_description();
 }
 
@@ -197,12 +215,18 @@ $(document).ready(function() {
     $("#card_file").change(handle_change_card_image);
     $("#griffe_file").change(handle_change_griffe_image);
     
-    
     $(".input_card_stats").keyup(save_stats);
     $("#input_card_name").keyup(save_headers);
     
     $("#input_card_sub_name").keyup(save_description);
     $("#input_description").keyup(save_description);
+    
+    $("#input_position_parchemin").keyup(save_position_parchemin);
+    $("#input_position_parchemin").change(save_position_parchemin);
+    
+    $("#input_card_sub_name_size").change(save_description);
+    $("#input_card_description_size").change(save_description);
+    
     
     $("input[name='input_card_level']").click(save_card_level);
     
