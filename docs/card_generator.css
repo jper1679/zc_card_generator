@@ -559,12 +559,12 @@ textarea {
 #output_card_header {
     position:absolute;
     width: 488px;
-    top:28px;
+    top:32px;
     text-align:center;
 }
 
 #output_card_header p{
-    margin: 0;
+    margin: 1<0;
 }
 
 #output_card_name {
