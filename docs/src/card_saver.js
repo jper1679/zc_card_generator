@@ -76,28 +76,40 @@ function save_slot(){
 }
 
 function save_break_in_noise(){
-	current_card.noisy_break_in = $("#input_break_in_noisy").is(":checked");
-	current_card.silent_break_in = $("#input_break_in_silent").is(":checked");
-        current_card.noisy_dices = $("input_dices").value;
+    current_card.noisy_break_in = $("#input_break_in_noisy").is(":checked");
+    current_card.silent_break_in = $("#input_break_in_silent").is(":checked");
+    
+    var noisy_dices = $("#input_break_in_dices").val();
+    set_locale_string("noisy_dices",noisy_dices);
+        	
+    // réinisitlisation de la position de l'image quand on la masque
+    if(!current_card.silent_break_in && !current_card.noisy_break_in){
+        $("#calque_break_in_noise").removeAttr("style");
+        current_card.break_in_noise_top = $("#calque_break_in_noise").css("top");
+    }
+    
+    display_unsaved_data_alert();
 	
-	// réinisitlisation de la position de l'image quand on la masque
-	if(!current_card.silent_break_in && !current_card.noisy_break_in){
-		$("#calque_break_in_noise").removeAttr("style");
-		current_card.break_in_noise_top = $("#calque_break_in_noise").css("top");
-	}
-	display_unsaved_data_alert();
-	
-	output_break_in_noise();
+    output_break_in_noise();
+}
+
+function save_break_in_position(){
+    var break_in_position = $("#input_break_in_position").val();
+    set_locale_string("break_in_position",break_in_position);
+    
+    display_unsaved_data_alert();
+
+    output_break_in_noise();
 }
 
 function end_drag_break_in_noise(){
-	current_card.break_in_noise_top = $("#calque_break_in_noise").position().top;
-	display_unsaved_data_alert();
+    current_card.break_in_noise_top = $("#calque_break_in_noise").position().top;
+    display_unsaved_data_alert();
 }
 
 function end_drag_kill_noise(){
-	current_card.kill_noise_top = $("#calque_kill_noise").position().top;
-	display_unsaved_data_alert();
+    current_card.kill_noise_top = $("#calque_kill_noise").position().top;
+    display_unsaved_data_alert();
 }
 
 function save_griffe_position(){
@@ -172,8 +184,7 @@ function save_description(){
     }
     
     output_parchemin();
-    output_description();
-    
+    output_description();  
 }
 
 function save_position_parchemin(){
@@ -222,11 +233,10 @@ $(document).ready(function() {
     $("#input_description").keyup(save_description);
     
     $("#input_position_parchemin").keyup(save_position_parchemin);
-    $("#input_position_parchemin").change(save_position_parchemin);
+    //$("#input_position_parchemin").change(save_position_parchemin);
     
     $("#input_card_sub_name_size").change(save_description);
     $("#input_card_description_size").change(save_description);
-    
     
     $("input[name='input_card_level']").click(save_card_level);
     
@@ -235,7 +245,11 @@ $(document).ready(function() {
     
     $("input[name='input_card_type']").click(save_card_type);
     
-    $("input[name='input_break_in_noise']").click(save_break_in_noise);
+    $("input[name='input_break_in']").click(save_break_in_noise);
+    $("input[name='input_break_in_dices']").keyup(save_break_in_noise);
+    $("input[name='input_break_in_position']").keyup(save_break_in_position);
+    
+    
     $("input[name='input_kill_noise']").click(save_kill_noise);
     
     $(".calque_break_in_noise").draggable({

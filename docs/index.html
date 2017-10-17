@@ -426,24 +426,41 @@
                         <div class="panel-body">
                             <div class="radio">
                                 <label>
-                                    <input id="input_break_in_none" type="radio" name="input_break_in_noise"  value="none" checked="checked"/>Ne pas afficher
+                                    <input id="input_break_in_none" type="radio" name="input_break_in"  value="none" checked="checked"/>Ne pas afficher
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input id="input_break_in_silent" type="radio" name="input_break_in_noise"  value="silent"/>Ouverture silencieuse
+                                    <input id="input_break_in_silent" type="radio" name="input_break_in"  value="silent"/>Ouverture silencieuse
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input id="input_break_in_noisy" type="radio" name="input_break_in_noise"  value="noisy"/>Ouverture bruyante : 
-                                    <select id="input_dices" name="input_break_in_noise">
+                                    <input id="input_break_in_noisy" type="radio" name="input_break_in"  value="noisy"/>Ouverture bruyante 
+                                </label>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-7">
+                                    Nombre de dés
+                                </div>
+                                <div class="col-md-5">
+                                    <input id="input_break_in_dices" name="input_break_in_dices" type="number" min="3" max="6" step="1" value="4"/>
+<!--                                    <select id="input_break_in_dices" name="input_break_in_dices">
                                         <option value="door6">6</option>
                                         <option value="door5">5</option>
                                         <option value="door4">4</option>
                                         <option value="door3">3</option>
-                                    </select>
-                                </label>
+                                    </select>-->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-7">
+                                    Position
+                                </div>
+                                
+                                <div class="col-md-5">
+                                    <input id="input_break_in_position" name="input_break_in_dices" type="number" min="0" max="500" step="1" value="357"/>
+                                </div>
                             </div>
                         </div>
                     </div>
