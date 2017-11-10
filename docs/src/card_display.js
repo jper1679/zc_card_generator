@@ -77,6 +77,7 @@ function output_break_in_noise() {
     } else if(current_card.silent_break_in){
         $("#calque_door").show();
         $("#calque_dice").show();
+        $("#calque_break_in_noise").hide();
     } else {
         $("#calque_door").hide();
         $("#calque_break_in_noise").hide();
@@ -84,19 +85,28 @@ function output_break_in_noise() {
     }
 }
 
-function update_break_in_position(){
+function update_door_group(){
+    var dice_top = get_locale_string("dice_top");
+    $("#calque_door").css("top", dice_top.toString() + "px");
+    $("#calque_break_in_noise").css("top", dice_top.toString() + "px");
+}
+
+function not_used_update_break_in_position(){
     
-    var position_parchemin = get_locale_string("position_parchemin");
     
-    $("#calque_parchemin").css("top", position_parchemin.toString() + "px");
     
-    if (is_description() || is_card_sub_name() || is_stats()){
-        $("#calque_parchemin").show();
-    } else {
-        $("#calque_parchemin").hide();
-    }
-    $("#calque_parchemin").show();
-    output_griffe();
+    
+//    var position_dice = get_locale_string("position_dice");
+//    
+//    $("#calque_dice").css("top", position_dice.toString() + "px");
+//    
+//    if (is_description() || is_card_sub_name() || is_stats()){
+//        $("#calque_parchemin").show();
+//    } else {
+//        $("#calque_parchemin").hide();
+//    }
+//    $("#calque_parchemin").show();
+//    //output_griffe();
 }
 
 function output_kill_noise() {

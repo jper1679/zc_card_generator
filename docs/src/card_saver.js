@@ -102,9 +102,20 @@ function save_break_in_position(){
     output_break_in_noise();
 }
 
+function update_break_in_position(){
+    current_card.dice_top = $("#calque_dice").position().top;
+    update_door_group();
+}
+
+//function end_drag_break_in_noise(){
+//    current_card.break_in_noise_top = $("#calque_break_in_noise").position().top;
+//    display_unsaved_data_alert();
+//}
+
 function end_drag_break_in_noise(){
-    current_card.break_in_noise_top = $("#calque_break_in_noise").position().top;
+    current_card.dice_top = $("#calque_dice").position().top;
     display_unsaved_data_alert();
+    update_door_group();
 }
 
 function end_drag_kill_noise(){
@@ -249,15 +260,22 @@ $(document).ready(function() {
     $("input[name='input_break_in_dices']").keyup(save_break_in_noise);
     $("input[name='input_break_in_position']").keyup(save_break_in_position);
     
-    
     $("input[name='input_kill_noise']").click(save_kill_noise);
     
-    $(".calque_break_in_noise").draggable({
+    $(".calque_dice").draggable({
         containment: "#card_overlay",
         axis: "y",
         cursor: "move",
+                //drag: update_break_in_position,
 		stop: end_drag_break_in_noise
     });
+    
+//    $(".calque_break_in_noise").draggable({
+//        containment: "#card_overlay",
+//        axis: "y",
+//        cursor: "move",
+//		stop: end_drag_break_in_noise
+//    });
     
 //    $("#calque_description").draggable({
 //        axis: "y",
@@ -272,12 +290,7 @@ $(document).ready(function() {
 //		stop: end_drag_griffe
 //    });
 	
-//    $(".calque_kill_noise").draggable({
-//        containment: "#card_overlay",
-//        axis: "y",
-//        cursor: "move",
-//		stop: end_drag_kill_noise
-//    });
+
 
     $("#card_image").draggable({
 	containment: "#card_overlay",
