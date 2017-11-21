@@ -262,6 +262,7 @@ textarea {
 .calque_door {
     background-image: url("img/bp/door.png");
     top:380px;
+    left:153px;
     background-position: center;
     background-repeat: no-repeat;
 }

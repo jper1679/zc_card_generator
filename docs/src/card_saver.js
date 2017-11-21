@@ -103,7 +103,7 @@ function save_break_in_position(){
 }
 
 function update_break_in_position(){
-    current_card.dice_top = $("#calque_dice").position().top;
+    current_card.door_top = $("#calque_door").position().top;
     update_door_group();
 }
 
@@ -113,7 +113,7 @@ function update_break_in_position(){
 //}
 
 function end_drag_break_in_noise(){
-    current_card.dice_top = $("#calque_dice").position().top;
+    current_card.door_top = $("#calque_door").position().top;
     display_unsaved_data_alert();
     update_door_group();
 }
@@ -262,7 +262,7 @@ $(document).ready(function() {
     
     $("input[name='input_kill_noise']").click(save_kill_noise);
     
-    $(".calque_dice").draggable({
+    $(".calque_door").draggable({
         containment: "#card_overlay",
         axis: "y",
         cursor: "move",
@@ -316,4 +316,4 @@ $(document).ready(function() {
     $("#input_image_max_rate").keyup(save_image_max_range);
 	
     $("#input_image_shadow").click(save_card_image_shadow);
-})
+});
