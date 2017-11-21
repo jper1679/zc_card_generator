@@ -271,26 +271,26 @@
                             <br>
                             
                             
-                            <textarea id="input_description" rows="5" class="form-control" ></textarea>
+                            <textarea id="input_description" rows="4" class="form-control" ></textarea>
                             <br>
                             
                             <!-- Statistiques -->
                             Statistiques
                             <div class="row">
                                 <div class="col-md-3">
-                                    <textarea id="input_range" rows="3" class="form-control input_card_stats"></textarea>
+                                    <textarea id="input_range" rows="2" class="form-control input_card_stats"></textarea>
                                 </div>
                                 
                                 <div class="col-md-3">
-                                    <textarea id="input_nb_dice" rows="3" class="form-control input_card_stats"></textarea>
+                                    <textarea id="input_nb_dice" rows="2" class="form-control input_card_stats"></textarea>
                                 </div>
                                 
                                 <div class="col-md-3">
-                                    <textarea id="input_val_dice" rows="3" class="form-control input_card_stats"></textarea>
+                                    <textarea id="input_val_dice" rows="2" class="form-control input_card_stats"></textarea>
                                 </div>
                                 
                                 <div class="col-md-3">
-                                    <textarea id="input_power" rows="3" class="form-control input_card_stats"></textarea>
+                                    <textarea id="input_power" rows="2" class="form-control input_card_stats"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -347,8 +347,8 @@
                             
                             
                             <div id="calque_door" class="calque optional calque_door calque_bleeding"></div>
-                            <div id="calque_break_in_noise" class="calque optional calque_break_in_noise calque_bleeding"></div>
-                            <div id="calque_dice" class="calque optional calque_dice calque_bleeding"></div>
+<!--                            <div id="calque_break_in_noise" class="calque optional calque_break_in_noise calque_bleeding"></div>
+                            <div id="calque_dice" class="calque optional calque_dice calque_bleeding"></div>-->
                             
                             
                         </div>
@@ -383,6 +383,19 @@
                         </div>
                     </div>
                     
+                    <!-- Arme dual -->
+                    <div class="panel panel-default">					             
+                        <div class="panel-heading">Arme dual           
+                        </div>					                                   					             
+                        <div class="panel-body">						             
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="input_dual"/> Arme dual
+                                </label>
+                            </div>							
+                        </div>					         
+                    </div>
+                    
                     <!-- Emplacement -->
                     <div class="panel panel-default">
                         <div class="panel-heading">Emplacement</div>
@@ -410,19 +423,6 @@
                         </div>
                     </div>
                     
-                    <!-- Arme dual -->
-                    <div class="panel panel-default">					             
-                        <div class="panel-heading">Arme dual           
-                        </div>					                                   					             
-                        <div class="panel-body">						             
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" id="input_dual"/> Arme dual
-                                </label>
-                            </div>							
-                        </div>					         
-                    </div>
-                    
                     <!-- Ouverture de portes -->
                     <div class="panel panel-default help" data-container="body" data-toggle="popover" title="Astuce !" data-placement="left" data-content="L'image peut être déplacée verticalement par drag'n drop directement sur l'aperçu.">
                         <div class="panel-heading">Ouverture de portes</div>
@@ -448,28 +448,13 @@
                                 </div>
                                 <div class="col-md-5">
                                     <input id="input_break_in_dices" name="input_break_in_dices" type="number" min="3" max="6" step="1" value="4"/>
-<!--                                    <select id="input_break_in_dices" name="input_break_in_dices">
-                                        <option value="door6">6</option>
-                                        <option value="door5">5</option>
-                                        <option value="door4">4</option>
-                                        <option value="door3">3</option>
-                                    </select>-->
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-7">
-                                    Position
-                                </div>
-                                
-                                <div class="col-md-5">
-                                    <input id="input_break_in_position" name="input_break_in_dices" type="number" min="0" max="500" step="1" value="357"/>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Bruit de l'arme -->
-                    <div class="panel panel-default help" data-container="body" data-toggle="popover" title="Astuce !" data-placement="left" data-content="L'image peut être déplacée verticalement par drag'n drop directement sur l'aperçu.">
+                    <div class="panel panel-default">
                         <div class="panel-heading">Bruit de l'arme</div>
                         <div class="panel-body">
                             <div class="radio">

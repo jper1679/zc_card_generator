@@ -56,39 +56,40 @@ function output_break_in_noise() {
     
     var dice = parseInt(get_locale_string("noisy_dices"));
     
-    if (dice == 3){
-        $("#calque_dice").css("background-image", "url(img/bp/dice_3.png)");
-    } else if (dice == 4){
-        $("#calque_dice").css("background-image", "url(img/bp/dice_4.png)");
-    } else if (dice == 5){
-        $("#calque_dice").css("background-image", "url(img/bp/dice_5.png)");
-    } else if (dice == 6){
-        $("#calque_dice").css("background-image", "url(img/bp/dice_6.png)");
-    } else {
-        ;
-    }
-    
     if (current_card.noisy_break_in){
+        if (dice == 3){
+            $("#calque_door").css("background-image", "url(img/bp/door_noise_3.png)");
+        } else if (dice == 4){
+            $("#calque_door").css("background-image", "url(img/bp/door_noise_4.png)");
+        } else if (dice == 5){
+            $("#calque_door").css("background-image", "url(img/bp/door_noise_5.png)");
+        } else if (dice == 6){
+            $("#calque_door").css("background-image", "url(img/bp/door_noise_6.png)");
+        } else {
+            ;
+        }
         $("#calque_door").show();
-        $("#calque_dice").show();
-        $("#calque_break_in_noise").addClass("calque_break_in_noise");
-        $("#calque_break_in_noise").css("background-image", "url(img/bp/door_noise.png)");
-        $("#calque_break_in_noise").show();
     } else if(current_card.silent_break_in){
+        if (dice == 3){
+            $("#calque_door").css("background-image", "url(img/bp/door_3.png)");
+        } else if (dice == 4){
+            $("#calque_door").css("background-image", "url(img/bp/door_4.png)");
+        } else if (dice == 5){
+            $("#calque_door").css("background-image", "url(img/bp/door_5.png)");
+        } else if (dice == 6){
+            $("#calque_door").css("background-image", "url(img/bp/door_6.png)");
+        } else {
+            ;
+        }
         $("#calque_door").show();
-        $("#calque_dice").show();
-        $("#calque_break_in_noise").hide();
     } else {
         $("#calque_door").hide();
-        $("#calque_break_in_noise").hide();
-        $("#calque_dice").hide();
     }
 }
 
 function update_door_group(){
-    var dice_top = get_locale_string("dice_top");
-    $("#calque_door").css("top", dice_top.toString() + "px");
-    $("#calque_break_in_noise").css("top", dice_top.toString() + "px");
+    var door_top = get_locale_string("door_top");
+    $("#calque_door").css("top", door_top.toString() + "px");
 }
 
 function not_used_update_break_in_position(){
