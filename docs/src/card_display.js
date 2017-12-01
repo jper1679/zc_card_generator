@@ -54,65 +54,60 @@ function output_slot() {
 function output_break_in_noise() {
     $("#calque_break_in_noise").removeClass("calque_break_in_noise_noisy calque_break_in_noise_silent");
     
-    
-    switch (current_card.noisy_dices){
-        case "door3":
-            $("#calque_dice").css("background-image", "url(img/bp/door3.png)");
-        case "door4":
-            $("#calque_dice").css("background-image", "url(img/bp/door4.png)");
-        case "door5":
-            $("#calque_dice").css("background-image", "url(img/bp/door5.png)");
-        case "door6":
-            $("#calque_dice").css("background-image", "url(img/bp/door6.png)");
-        default:
-            ;
-    }
-
-//    if (current_card.noisy_dices == 1){
-//        $("#calque_description").css("background-image", "url(img/bp/parchemin_1.png)");
-//        $("#calque_description").css("top", "605px");
-//        $("#calque_description").css("height", "145px");
-//    } else if (current_card.noisy_dices == 2){
-//        $("#calque_description").css("background-image", "url(img/bp/parchemin_2.png)");
-//        $("#calque_description").css("top", "610px");
-//        $("#calque_description").css("height", "140px");
-//    } else if (lines == 3){
-//        $("#calque_description").css("background-image", "url(img/bp/parchemin_3.png)");
-//        $("#calque_description").css("top", "573px");
-//        $("#calque_description").css("height", "177px");
-//    } else if (lines == 4){
-//        $("#calque_description").css("background-image", "url(img/bp/parchemin_4.png)");
-//        $("#calque_description").css("top", "530px");
-//        $("#calque_description").css("height", "220px");
-//    } else if (lines == 5){
-//        $("#calque_description").css("background-image", "url(img/bp/parchemin_5.png)");
-//        $("#calque_description").css("top", "541px");
-//        $("#calque_description").css("height", "209px");
-//    } else if (lines == 6){
-//        $("#calque_description").css("background-image", "url(img/bp/parchemin_5.png)");
-//        $("#calque_description").css("top", "541px");
-//        $("#calque_description").css("height", "209px");
-//    } else {
-//
-//    }
-    
-    
+    var dice = parseInt(get_locale_string("noisy_dices"));
     
     if (current_card.noisy_break_in){
-        $("#calque_break_in_noise").addClass("calque_break_in_noise_noisy");
-    } else if(current_card.silent_break_in){
-        $("#calque_break_in_noise").addClass("calque_break_in_noise_silent");
-    }
-	
-    if (current_card.noisy_break_in || current_card.silent_break_in) {
+        if (dice == 3){
+            $("#calque_door").css("background-image", "url(img/bp/door_noise_3.png)");
+        } else if (dice == 4){
+            $("#calque_door").css("background-image", "url(img/bp/door_noise_4.png)");
+        } else if (dice == 5){
+            $("#calque_door").css("background-image", "url(img/bp/door_noise_5.png)");
+        } else if (dice == 6){
+            $("#calque_door").css("background-image", "url(img/bp/door_noise_6.png)");
+        } else {
+            ;
+        }
         $("#calque_door").show();
-        $("#calque_break_in_noise").show();
-        $("#calque_dice").show();
+    } else if(current_card.silent_break_in){
+        if (dice == 3){
+            $("#calque_door").css("background-image", "url(img/bp/door_3.png)");
+        } else if (dice == 4){
+            $("#calque_door").css("background-image", "url(img/bp/door_4.png)");
+        } else if (dice == 5){
+            $("#calque_door").css("background-image", "url(img/bp/door_5.png)");
+        } else if (dice == 6){
+            $("#calque_door").css("background-image", "url(img/bp/door_6.png)");
+        } else {
+            ;
+        }
+        $("#calque_door").show();
     } else {
         $("#calque_door").hide();
-        $("#calque_break_in_noise").hide();
-        $("#calque_dice").hide();
     }
+}
+
+function update_door_group(){
+    var door_top = get_locale_string("door_top");
+    $("#calque_door").css("top", door_top.toString() + "px");
+}
+
+function not_used_update_break_in_position(){
+    
+    
+    
+    
+//    var position_dice = get_locale_string("position_dice");
+//    
+//    $("#calque_dice").css("top", position_dice.toString() + "px");
+//    
+//    if (is_description() || is_card_sub_name() || is_stats()){
+//        $("#calque_parchemin").show();
+//    } else {
+//        $("#calque_parchemin").hide();
+//    }
+//    $("#calque_parchemin").show();
+//    //output_griffe();
 }
 
 function output_kill_noise() {
