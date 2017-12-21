@@ -78,28 +78,35 @@ nav li div.radio label, nav li div.checkbox label{
     margin-left: -80px;
 }
 
+/*  Bleeding 
+    0 = Aucun (488*750)
+    1 = MPC/TGC et découpe manuelle (600*825)
+    2 = MPC/TGC sans découpe (Format Mini-US) (600*825)
+    3 = Impression et découpe manuelle
+*/
+
 .card_background_bleeding_0_normal, .card_background_bleeding_1_normal, .card_background_bleeding_2_normal{
-    background-image:url("img/bp/background_normal.png");
+    background-image:url("img/bp/bleeding_normal.png");
 }
 
 .card_background_bleeding_3_normal{
-    background-image:url("img/bp/bleeding_normal2.png");
+    background-image:url("img/bp/bleeding_normal3.png");
 }
 
 .card_background_bleeding_0_pimp, .card_background_bleeding_1_pimp, .card_background_bleeding_2_pimp{
-    background-image:url("img/bp/background_vault.png");
-}
-
-.card_background_bleeding_3_pimp{
     background-image:url("img/bp/bleeding_vault.png");
 }
 
+.card_background_bleeding_3_pimp{
+    background-image:url("img/bp/bleeding_vault3.png");
+}
+
 .card_background_bleeding_0_starting, .card_background_bleeding_1_starting, .card_background_bleeding_2_starting{
-    background-image:url("img/bp/background_starting.png");
+    background-image:url("img/bp/bleeding_starting.png");
 }
 
 .card_background_bleeding_3_starting{
-    background-image:url("img/bp/bleeding_starting.png");
+    background-image:url("img/bp/bleeding_starting3.png");
 }
 
 .card_bleeding_area_bleeding_1{
