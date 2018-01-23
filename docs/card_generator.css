@@ -78,28 +78,35 @@ nav li div.radio label, nav li div.checkbox label{
     margin-left: -80px;
 }
 
+/*  Bleeding 
+    0 = Aucun (488*750)
+    1 = MPC/TGC et découpe manuelle (600*825)
+    2 = MPC/TGC sans découpe (Format Mini-US) (600*825)
+    3 = Impression et découpe manuelle
+*/
+
 .card_background_bleeding_0_normal, .card_background_bleeding_1_normal, .card_background_bleeding_2_normal{
-    background-image:url("img/bp/background_normal.png");
+    background-image:url("img/bp/bleeding_normal.png");
 }
 
 .card_background_bleeding_3_normal{
-    background-image:url("img/bp/bleeding_normal2.png");
+    background-image:url("img/bp/bleeding_normal3.png");
 }
 
 .card_background_bleeding_0_pimp, .card_background_bleeding_1_pimp, .card_background_bleeding_2_pimp{
-    background-image:url("img/bp/background_vault.png");
-}
-
-.card_background_bleeding_3_pimp{
     background-image:url("img/bp/bleeding_vault.png");
 }
 
+.card_background_bleeding_3_pimp{
+    background-image:url("img/bp/bleeding_vault3.png");
+}
+
 .card_background_bleeding_0_starting, .card_background_bleeding_1_starting, .card_background_bleeding_2_starting{
-    background-image:url("img/bp/background_starting.png");
+    background-image:url("img/bp/bleeding_starting.png");
 }
 
 .card_background_bleeding_3_starting{
-    background-image:url("img/bp/bleeding_starting.png");
+    background-image:url("img/bp/bleeding_starting3.png");
 }
 
 .card_bleeding_area_bleeding_1{
@@ -260,7 +267,9 @@ textarea {
 }
 
 .calque_door {
-    background-image: url("img/bp/door.png");top:488px;
+    background-image: url("img/bp/door.png");
+    top:380px;
+    left:153px;
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -274,7 +283,7 @@ textarea {
 
 .calque_door_bleeding_0{
     width: 488px;
-    height: 225px;
+    height: 175px;
 }
 
 .calque_door_bleeding_1, .calque_door_bleeding_2 {
@@ -284,20 +293,23 @@ textarea {
     margin-left: -55px;
 }
 
+
+/*  200 x 250
+    288 x 
+*/
 .calque_break_in_noise {
-    top:488px;
+    top: 357px;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-.calque_break_in_noise_noisy {
-    background-image: url("img/bp/door.png");
+/*.calque_break_in_noise_noisy {
+    background-image: url("img/door_noise.png");
 }
 
 .calque_break_in_noise_silent{
-    /*background-image: url("img/SilentBreakIn.png");*/
-    background-image: url("img/bp/door.png");
-}
+    background-image: url("img/door_low_silent.png");
+}*/
 
 .calque_break_in_noise_bleeding_3{
     width: 568px;
@@ -319,7 +331,8 @@ textarea {
 }
 
 .calque_dice {
-    background-image: url("img/bp/door.png");top:488px;
+    background-image: url("img/bp/dice_4.png");
+    top:380px;
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -333,7 +346,7 @@ textarea {
 
 .calque_dice_bleeding_0{
     width: 488px;
-    height: 225px;
+    height: 175px;
 }
 
 .calque_dice_bleeding_1, .calque_dice_bleeding_2 {
@@ -362,6 +375,13 @@ textarea {
     height: 225px;
 }
 
+#input_break_in_dices{
+    width: 3em;
+}
+
+#input_break_in_position{
+    width: 3em;
+}
 .calque_kill_noise_bleeding_3{
     width: 568px;
     height: 305px;
@@ -564,7 +584,7 @@ textarea {
 }
 
 #output_card_header p{
-    margin: 1<0;
+    margin: 10;
 }
 
 #output_card_name {
