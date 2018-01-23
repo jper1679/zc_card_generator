@@ -258,6 +258,7 @@ $(document).ready(function() {
     
     $("input[name='input_break_in']").click(save_break_in_noise);
     $("input[name='input_break_in_dices']").keyup(save_break_in_noise);
+    $("input[name='input_break_in_dices']").click(save_break_in_noise);
     $("input[name='input_break_in_position']").keyup(save_break_in_position);
     
     $("input[name='input_kill_noise']").click(save_kill_noise);
