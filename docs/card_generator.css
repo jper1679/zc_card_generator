@@ -540,7 +540,7 @@ textarea {
 /*    top: 549px;*/
     left: 26px;
     height:241px;
-
+    
 /*    background-repeat: no-repeat;
     background-position: bottom;
     width:488px;
@@ -605,6 +605,7 @@ textarea {
     padding-top: 0px;
     text-align: center;
 /*    border: 1px solid black;*/
+    white-space:pre;
 }
 
 
@@ -623,6 +624,7 @@ textarea {
     text-align: center;
     letter-spacing: -0.5px;
     line-height: 115%;
+    white-space:pre;
 }
 
 #output_description_container {
