@@ -201,7 +201,7 @@ function output_description(){
         card_sub_name = replace_dices(card_sub_name);
         card_sub_name = replace_comp_capa(card_sub_name);
         card_sub_name = card_sub_name.toUpperCase();
-        $("#output_card_sub_name").html(card_sub_name.replace(/ /g, "&nbsp;"));
+        $("#output_card_sub_name").html(card_sub_name);
         //$("#output_card_sub_name").css("font-size", card_sub_name_size.toString() + "px");
         $("#output_card_sub_name").css("font-size", "22px");    // TO FIX
     } else {
@@ -212,7 +212,7 @@ function output_description(){
         description = replace_carriage_return(description);
         description = replace_dices(description);
         description = replace_comp_capa(description);
-        $("#output_description").html(description.replace(/ /g, "&nbsp;"));
+        $("#output_description").html(description);
         //$("#output_description").css("font-size", card_description_size.toString() + "px");
         $("#output_description").css("font-size", "22px");    // TO FIX
     } else {
