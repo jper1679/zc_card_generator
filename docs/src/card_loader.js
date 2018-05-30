@@ -6,6 +6,7 @@
 	load_headers();
 	load_stats();
 	load_description();
+        load_position_parchemin();
 	load_card_image();
 	load_card_image_shadow();
 	load_image_max_range();
@@ -113,7 +114,7 @@ function load_description(){
 
 function load_position_parchemin(){
         $("#input_position_parchemin").val(get_locale_string("position_parchemin"));
-	output_description();
+	output_parchemin();
 }
 
 function load_image_max_range(){
