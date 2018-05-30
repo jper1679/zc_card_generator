@@ -28,21 +28,6 @@ function save_card_image(){
 	display_unsaved_data_alert();
 }
 
-function save_stats() {
-    current_card.range = replace_carriage_return($("#input_range").val());
-    current_card.nb_dices = replace_carriage_return($("#input_nb_dice").val());
-    current_card.val_dices = replace_carriage_return($("#input_val_dice").val());
-    current_card.power = replace_carriage_return($("#input_power").val());
-	
-    if (!is_stats() && current_card.griffe_image_top) {
-        delete current_card.griffe_image_top;
-        delete current_card.griffe_image_left;
-    }
-	
-    display_unsaved_data_alert();
-    output_stats();
-}
-
 function save_headers() {
     set_locale_string("card_name",$("#input_card_name").val());
 	
@@ -172,6 +157,27 @@ function save_dual(){
 	output_dual();
 }
 
+function save_description_block() { //Unused yet
+    save_position_parchemin();
+    save_description();
+    save_stats();
+}
+
+function save_stats() {
+    current_card.range = replace_carriage_return($("#input_range").val());
+    current_card.nb_dices = replace_carriage_return($("#input_nb_dice").val());
+    current_card.val_dices = replace_carriage_return($("#input_val_dice").val());
+    current_card.power = replace_carriage_return($("#input_power").val());
+	
+    if (!is_stats() && current_card.griffe_image_top) {
+        delete current_card.griffe_image_top;
+        delete current_card.griffe_image_left;
+    }
+	
+    display_unsaved_data_alert();
+    output_stats();
+}
+
 function save_description(){
     var description = $("#input_description").val();
     set_locale_string("description",description);
@@ -194,7 +200,7 @@ function save_description(){
         delete current_card.griffe_image_left;
     }
     
-    output_parchemin();
+    //output_parchemin();
     output_description();  
 }
 
@@ -205,7 +211,7 @@ function save_position_parchemin(){
     display_unsaved_data_alert();
 
     output_parchemin();
-    output_description();
+    //output_description();
 }
 
 function start_drag_description(){

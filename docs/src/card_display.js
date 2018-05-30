@@ -198,16 +198,23 @@ function output_description(){
     if(card_sub_name){
         //var top_description = top_description + position_parchemin;
         card_sub_name = replace_carriage_return(card_sub_name);
-        $("#output_card_sub_name").html(replace_comp_capa(replace_dices(card_sub_name.toUpperCase())));
-        $("#output_card_sub_name").css("font-size", card_sub_name_size.toString() + "px");
+        card_sub_name = replace_dices(card_sub_name);
+        card_sub_name = replace_comp_capa(card_sub_name);
+        card_sub_name = card_sub_name.toUpperCase();
+        $("#output_card_sub_name").html(card_sub_name.replace(/ /g, "&nbsp;"));
+        //$("#output_card_sub_name").css("font-size", card_sub_name_size.toString() + "px");
+        $("#output_card_sub_name").css("font-size", "22px");    // TO FIX
     } else {
         $("#output_card_sub_name").html("");
     }
     
     if(description){
         description = replace_carriage_return(description);
-        $("#output_description").html(replace_comp_capa(replace_dices(description)));
-        $("#output_description").css("font-size", card_description_size.toString() + "px");
+        description = replace_dices(description);
+        description = replace_comp_capa(description);
+        $("#output_description").html(description.replace(/ /g, "&nbsp;"));
+        //$("#output_description").css("font-size", card_description_size.toString() + "px");
+        $("#output_description").css("font-size", "22px");    // TO FIX
     } else {
         $("#output_description").html("");
     }
@@ -221,7 +228,7 @@ function output_description(){
     }
     //update_descripion_text_position();
     output_griffe();
-    output_parchemin();
+    //output_parchemin();
 }
 
 function output_parchemin(){
@@ -229,6 +236,7 @@ function output_parchemin(){
     var position_parchemin = get_locale_string("position_parchemin");
     
     $("#calque_parchemin").css("top", position_parchemin.toString() + "px");
+    //$("#calque_parchemin").css("top", "100px");    // TO FIX
     
     if (is_description() || is_card_sub_name() || is_stats()){
         $("#calque_parchemin").show();
